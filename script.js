@@ -34,7 +34,7 @@ function updateView() {
         onclick="selectPkmn('Squirtle')">
     </div>
     <div id="battleArena" class="battleArena">
-    <div id="battleInfo" class="info">Choose a pokémon</div><br>
+    <div id="battleInfo" class="info">Choose your pokémon</div><br>
     </div>
     <div id="resultsInfo" class="resultsInfo"></div>
     `;
@@ -71,7 +71,7 @@ function selectPkmn(playerChoice){
     else if((playerChoice == 'Bulbasaur' && computerChoice == 'Squirtle')
     || (playerChoice == 'Charmander' && computerChoice == 'Bulbasaur')
     || (playerChoice == 'Squirtle' && computerChoice == 'Charmander')){
-        
+
         document.getElementById('resultsInfo').innerHTML = /*HTML*/`
         Your ${playerChoice} sweeps the floor with the opponent's ${computerChoice}! You win!
     `;
