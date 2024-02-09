@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <style>
+        .pokemon {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        updateView();
+
+        const choices = ['Bulbasaur', 'Charmander', 'Squirtle'];
+
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <img class="pokemon" src="img/Bulbasaur.png" onclick="play('Bulbasaur')">
+                <img class="pokemon" src="img/Charmander.png" onclick="play('Charmander')">
+                <img class="pokemon" src="img/Squirtle.png" onclick="play('Squirtle')">
+            `;
+        }
+
+        function play(playerChoice) {
+            const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+            const result = getResult(playerChoice, computerChoice);
+            alert(`Player chose ${playerChoice}\nComputer chose ${computerChoice}\nResult: ${result}`);
+        }
+
+        function getResult(playerChoice, computerChoice) {
+            if (playerChoice === computerChoice) {
+                return "It's a tie!";
+            } else if (
+                (playerChoice === 'Bulbasaur' && computerChoice === 'Squirtle') ||
+                (playerChoice === 'Charmander' && computerChoice === 'Bulbasaur') ||
+                (playerChoice === 'Squirtle' && computerChoice === 'Charmander')
+            ) {
+                return "Player wins!";
+            } else {
+                return "Computer wins!";
+            }
+        }
+    </script>
+</body>
+</html>
