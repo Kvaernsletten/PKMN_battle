@@ -5,9 +5,22 @@ let app = document.getElementById('app');
 
 let playerChoice = "";
 let computerChoice = "";
-let bulbasaurImg = "img/Bulbasaur.png"
-let charmanderImg = "img/Charmander.png"
-let squirtleImg = "img/Squirtle.png"
+let bulbasaurImgUrl = "img/Bulbasaur.png"
+let charmanderImgUrl = "img/Charmander.png"
+let squirtleImgUrl = "img/Squirtle.png"
+
+let bulbasaurImg = /*HTML*/`<img class="bulbasaur" src="img/Bulbasaur.png"
+                    onmouseover="onHover(1, this)" 
+                    onmouseout="onHover(2, this)"
+                    onclick="selectPkmn('Bulbasaur')">`;
+let charmanderImg = /*HTML*/`<img class="charmander" src="img/Charmander.png"
+                    onmouseover="onHover(3, this)" 
+                    onmouseout="onHover(4, this)"
+                    onclick="selectPkmn('Charmander')">`;
+let squirtleImg = /*HTML*/`<img class="squirtle" src="img/Squirtle.png"
+                    onmouseover="onHover(5, this)" 
+                    onmouseout="onHover(6, this)"
+                    onclick="selectPkmn('Squirtle')">`;
 
 updateView();
 
@@ -20,18 +33,9 @@ function updateView() {
     <img src="img/pokeball.png">
     </div>
     <div id="pkmnContainer" class="pkmnContainer">
-        <img class="bulbasaur" src="${bulbasaurImg}"
-        onmouseover="onHover(1, this)" 
-        onmouseout="onHover(2, this)"
-        onclick="selectPkmn('Bulbasaur')">
-        <img class="charmander" src="${charmanderImg}"
-        onmouseover="onHover(3, this)" 
-        onmouseout="onHover(4, this)"
-        onclick="selectPkmn('Charmander')">
-        <img class="squirtle" src="${squirtleImg}"
-        onmouseover="onHover(5, this)" 
-        onmouseout="onHover(6, this)"
-        onclick="selectPkmn('Squirtle')">
+        ${bulbasaurImg}
+        ${charmanderImg}
+        ${squirtleImg}
     </div>
     <div id="battleArena" class="battleArena">
     <div id="battleInfo" class="info">Choose your pokémon</div><br>
@@ -42,11 +46,11 @@ function updateView() {
 
 function onHover(pkmn, image) {
     if (pkmn == 1 || pkmn == 2) {
-        image.src = (pkmn == 1) ? 'img/Bulbasaur_selected.png' : bulbasaurImg;
+        image.src = (pkmn == 1) ? 'img/Bulbasaur_selected.png' : 'img/Bulbasaur.png';
     } else if (pkmn == 3 || pkmn == 4) {
-        image.src = (pkmn == 3) ? 'img/Charmander_selected.png' : charmanderImg;
+        image.src = (pkmn == 3) ? 'img/Charmander_selected.png' : 'img/Charmander.png'
     } else if (pkmn == 5 || pkmn == 6) {
-        image.src = (pkmn == 5) ? 'img/Squirtle_selected.png' : squirtleImg;
+        image.src = (pkmn == 5) ? 'img/Squirtle_selected.png' : 'img/Squirtle.png';
     }
 }
 
@@ -54,6 +58,8 @@ function selectPkmn(playerChoice){
 
     let generateNumber = Math.floor(Math.random()*3)+1;    
     
+    updateView();
+
     if(generateNumber == 1){
         computerChoice = 'Bulbasaur'
     }
