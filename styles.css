@@ -16,3 +16,31 @@ img{
 .bulbasaur, .charmander, .squirtle{
     cursor: pointer;
 }
+
+.battleArena{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
+
+.info{
+    font-size: 400%;
+}
+
+.battleInfo{
+    font-size: 150%;
+    display: flex;
+    justify-content: center;
+}
+.resultsInfo{
+    font-weight: 800;
+    font-size: 200%;
+    display: flex;
+    justify-content: center;
+}
+.arenaPKMN{
+    width: 270px;
+    height: 270px;
+}

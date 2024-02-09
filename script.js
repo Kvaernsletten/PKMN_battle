@@ -33,6 +33,10 @@ function updateView() {
         onmouseout="onHover(6, this)"
         onclick="selectPkmn('Squirtle')">
     </div>
+    <div id="battleArena" class="battleArena">
+    <div id="battleInfo" class="info">Choose a pokémon</div><br>
+    </div>
+    <div id="resultsInfo" class="resultsInfo"></div>
     `;
 }
 
@@ -59,19 +63,28 @@ function selectPkmn(playerChoice){
     if(generateNumber == 3){
         computerChoice = 'Squirtle'
     }
-    console.log('Player selects ' + playerChoice);
-    console.log('Computer selects ' + computerChoice);
     if(playerChoice == computerChoice){
-        console.log("It's a draw!")
+        document.getElementById('resultsInfo').innerHTML = /*HTML*/`
+        You both chose the same Pokémon, it's a draw.....
+    `;
     }
     else if((playerChoice == 'Bulbasaur' && computerChoice == 'Squirtle')
     || (playerChoice == 'Charmander' && computerChoice == 'Bulbasaur')
     || (playerChoice == 'Squirtle' && computerChoice == 'Charmander')){
-        console.log('Player wins!')
+        document.getElementById('resultsInfo').innerHTML = /*HTML*/`
+        Your ${playerChoice} sweeps the floor with the opponent's ${computerChoice}! You win!
+    `;
     }else{
-        console.log(playerChoice + ' faints! Player loses!')
+        document.getElementById('resultsInfo').innerHTML = /*HTML*/`
+            Your ${playerChoice} faints! You lose!
+        `;
     }
 
+    document.getElementById('battleArena').innerHTML = /*HTML*/`
+        <div class="battleInfo">You chose ${playerChoice}</div>
+        <img class="arenaPKMN" src="img/${playerChoice}.png" style="transform: scaleX(-1);">
+        <img class="arenaPKMN" src="img/${computerChoice}.png">
+        <div class="battleInfo">Your opponent chose ${computerChoice}</div>
+    `;
 
-    updateView();
 }
