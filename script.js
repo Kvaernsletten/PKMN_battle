@@ -71,6 +71,7 @@ function selectPkmn(playerChoice){
     else if((playerChoice == 'Bulbasaur' && computerChoice == 'Squirtle')
     || (playerChoice == 'Charmander' && computerChoice == 'Bulbasaur')
     || (playerChoice == 'Squirtle' && computerChoice == 'Charmander')){
+        
         document.getElementById('resultsInfo').innerHTML = /*HTML*/`
         Your ${playerChoice} sweeps the floor with the opponent's ${computerChoice}! You win!
     `;
@@ -86,5 +87,4 @@ function selectPkmn(playerChoice){
         <img class="arenaPKMN" src="img/${computerChoice}.png">
         <div class="battleInfo">Your opponent chose ${computerChoice}</div>
     `;
-
 }
