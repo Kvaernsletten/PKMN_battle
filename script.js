@@ -65,7 +65,8 @@ function selectPkmn(playerChoice){
     }
     if(playerChoice == computerChoice){
         document.getElementById('resultsInfo').innerHTML = /*HTML*/`
-        You both chose the same Pokémon, it's a draw.....
+        <span class="results">You and your opponent chose the same Pokémon, </span>
+        <span class="finalResults"> it's a stalemate.....</span>
     `;
     }
     else if((playerChoice == 'Bulbasaur' && computerChoice == 'Squirtle')
@@ -73,11 +74,13 @@ function selectPkmn(playerChoice){
     || (playerChoice == 'Squirtle' && computerChoice == 'Charmander')){
 
         document.getElementById('resultsInfo').innerHTML = /*HTML*/`
-        Your ${playerChoice} sweeps the floor with the opponent's ${computerChoice}! You win!
+        <span class="results">Your ${playerChoice} sweeps the floor with the opponent's ${computerChoice}!</span> 
+        <span class="finalResults" style="color: green"> You win!</span>
     `;
     }else{
         document.getElementById('resultsInfo').innerHTML = /*HTML*/`
-            Your ${playerChoice} faints! You lose!
+            <span class ="results">Your ${playerChoice} is knocked out and unable to battle!</span>
+            <span class="finalResults" style="color: red"> You lose!</span>
         `;
     }
 
