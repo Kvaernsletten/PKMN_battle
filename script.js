@@ -5,9 +5,7 @@ let app = document.getElementById('app');
 
 let playerChoice = "";
 let computerChoice = "";
-let bulbasaurImgUrl = "img/Bulbasaur.png"
-let charmanderImgUrl = "img/Charmander.png"
-let squirtleImgUrl = "img/Squirtle.png"
+let generateNumber;   
 
 let bulbasaurImg = /*HTML*/`<img class="bulbasaur" src="img/Bulbasaur.png"
                     onmouseover="onHover(1, this)" 
@@ -54,10 +52,10 @@ function onHover(pkmn, image) {
     }
 }
 
-function selectPkmn(playerChoice){
-
-    let generateNumber = Math.floor(Math.random()*3)+1;    
+function selectPkmn(playerChoice){ 
     
+    generateNumber = Math.floor(Math.random()*3)+1;
+
     updateView();
 
     if(generateNumber == 1){
